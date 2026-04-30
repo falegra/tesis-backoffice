@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { parseToken } from '@/lib/auth/tokens'
 import { Sidebar } from '@/components/layout/sidebar'
 import { Header } from '@/components/layout/header'
+import { Toaster } from '@/components/ui/sonner'
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies()
@@ -24,6 +25,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         <Header username={username} />
         <main className="flex-1 p-6">{children}</main>
       </div>
+      <Toaster position="top-right" richColors />
     </div>
   )
 }
